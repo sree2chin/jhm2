@@ -22,7 +22,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'// here the output files will be created from key names of entry object.
+    filename: '[name].[chunkhash].js'// here the output files will be created from key names of entry object.
   },
   module: {
     rules: [
@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      names: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
