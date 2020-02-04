@@ -10,8 +10,10 @@ import {
   CLEAR_ERROR,
   DESELECT_ARTIST,
   SELECT_ARTIST,
-  RESET_SELECTION
+  RESET_SELECTION,
+  ARTIST_TEST
 } from './types';
+import axios from 'axios'
 
 import GetAgeRange from '../../database/queries/GetAgeRange';
 import GetYearsActiveRange from '../../database/queries/GetYearsActiveRange';
@@ -99,7 +101,15 @@ export const deleteArtist = (id) => dispatch =>
       dispatch({ type: CREATE_ERROR, payload: error });
     });
 
-
+export const getArtistTest = () => dispatch => {
+  return axios.get('http://dummy.restapiexample.com/api/v1/employees')
+    .then( response => {
+      dispatch({
+        type: ARTIST_TEST,
+        payload: response.data
+      });
+    })
+}
 //
 // Faux Proxies
 

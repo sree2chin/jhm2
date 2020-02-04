@@ -32,6 +32,13 @@ const componentRoutes = {
         System.import("./components/artists/ArtistEdit")
           .then(module => cb(null, module.default));
       }
+    },
+    {
+      path: 'fads',
+      getComponent(location, cb) {
+        System.import("./components/artists/ArtistTest")
+          .then(module => cb(null, module.default));
+      }
     }
   ]
 }

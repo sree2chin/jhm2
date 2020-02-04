@@ -2,7 +2,8 @@ import _ from 'lodash';
 import {
   SEARCH_ARTISTS,
   FIND_ARTIST,
-  RESET_ARTIST
+  RESET_ARTIST,
+  ARTIST_TEST
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -23,6 +24,8 @@ export default (state = INITIAL_STATE, action) => {
       return _.extend({}, state, { artist: action.payload });
     case RESET_ARTIST:
       return _.extend({}, state, { artist: null });
+    case ARTIST_TEST:
+      return _.extend({}, state, { artistTest: action.payload })
     default:
       return state;
   }
