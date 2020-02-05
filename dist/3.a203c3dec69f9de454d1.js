@@ -1,6 +1,6 @@
-webpackJsonp([1,6],{
+webpackJsonp([3,6],{
 
-/***/ 1547:
+/***/ 1503:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16,9 +16,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(12);
+var _reactRedux = __webpack_require__(11);
 
-var _actions = __webpack_require__(78);
+var _reduxForm = __webpack_require__(65);
+
+var _actions = __webpack_require__(68);
 
 var actions = _interopRequireWildcard(_actions);
 
@@ -32,109 +34,53 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ArtistEdit = function (_Component) {
-  _inherits(ArtistEdit, _Component);
+var ArtistCreate = function (_Component) {
+  _inherits(ArtistCreate, _Component);
 
-  function ArtistEdit(props) {
-    _classCallCheck(this, ArtistEdit);
+  function ArtistCreate() {
+    _classCallCheck(this, ArtistCreate);
 
-    var _this = _possibleConstructorReturn(this, (ArtistEdit.__proto__ || Object.getPrototypeOf(ArtistEdit)).call(this, props));
-
-    _this.state = {};
-    return _this;
+    return _possibleConstructorReturn(this, (ArtistCreate.__proto__ || Object.getPrototypeOf(ArtistCreate)).apply(this, arguments));
   }
 
-  _createClass(ArtistEdit, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.props.findArtist(this.props.params.id);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref) {
-      var artist = _ref.artist;
-
-      if (artist) {
-        var name = artist.name,
-            age = artist.age,
-            yearsActive = artist.yearsActive,
-            genre = artist.genre;
-
-
-        this.setState({ name: name, age: age, yearsActive: yearsActive, genre: genre });
-      }
-    }
-  }, {
-    key: 'componentWillUpdate',
-    value: function componentWillUpdate(nextProps) {
-      if (nextProps.params.id !== this.props.params.id) {
-        this.props.findArtist(nextProps.params.id);
-      }
-    }
-  }, {
+  _createClass(ArtistCreate, [{
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.props.clearError();
     }
   }, {
     key: 'onSubmit',
-    value: function onSubmit(event) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      this.props.editArtist(this.props.params.id, this.state);
+    value: function onSubmit(formProps) {
+      this.props.createArtist(formProps);
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var handleSubmit = this.props.handleSubmit;
+
 
       return _react2.default.createElement(
         'form',
-        { onSubmit: this.onSubmit.bind(this) },
+        { onSubmit: handleSubmit(this.onSubmit.bind(this)) },
         _react2.default.createElement(
           'div',
           { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.name,
-            onChange: function onChange(e) {
-              return _this2.setState({ name: e.target.value });
-            },
-            placeholder: 'Name'
-          })
+          _react2.default.createElement(_reduxForm.Field, { name: 'name', component: 'input', placeholder: 'Name' })
         ),
         _react2.default.createElement(
           'div',
           { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.age,
-            onChange: function onChange(e) {
-              return _this2.setState({ age: e.target.value });
-            },
-            placeholder: 'Age'
-          })
+          _react2.default.createElement(_reduxForm.Field, { name: 'age', component: 'input', placeholder: 'Age' })
         ),
         _react2.default.createElement(
           'div',
           { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.yearsActive,
-            onChange: function onChange(e) {
-              return _this2.setState({ yearsActive: e.target.value });
-            },
-            placeholder: 'Years Active'
-          })
+          _react2.default.createElement(_reduxForm.Field, { name: 'yearsActive', component: 'input', placeholder: 'Years Active' })
         ),
         _react2.default.createElement(
           'div',
           { className: 'input-field' },
-          _react2.default.createElement('input', {
-            value: this.state.genre,
-            onChange: function onChange(e) {
-              return _this2.setState({ genre: e.target.value });
-            },
-            placeholder: 'Genre'
-          })
+          _react2.default.createElement(_reduxForm.Field, { name: 'genre', component: 'input', placeholder: 'Genre' })
         ),
         _react2.default.createElement(
           'div',
@@ -150,17 +96,18 @@ var ArtistEdit = function (_Component) {
     }
   }]);
 
-  return ArtistEdit;
+  return ArtistCreate;
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    artist: state.artists.artist,
     errorMessage: state.errors
   };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(ArtistEdit);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)((0, _reduxForm.reduxForm)({
+  form: 'create'
+})(ArtistCreate));
 
 /***/ }
 

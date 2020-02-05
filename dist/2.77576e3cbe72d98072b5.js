@@ -1,6 +1,6 @@
 webpackJsonp([2,6],{
 
-/***/ 1546:
+/***/ 1504:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16,11 +16,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(12);
+var _reactRedux = __webpack_require__(11);
 
-var _reactRouter = __webpack_require__(42);
+var _reactRouter = __webpack_require__(34);
 
-var _actions = __webpack_require__(78);
+var _actions = __webpack_require__(68);
 
 var actions = _interopRequireWildcard(_actions);
 

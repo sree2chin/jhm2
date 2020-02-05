@@ -21,7 +21,7 @@ module.exports = {
     vendor: VENDOR_LIBS
   },
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js'// here the output files will be created from key names of entry object.
   },
   module: {
@@ -42,7 +42,19 @@ module.exports = {
       names: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      inject: 'body',
+      filename: 'index.ejs',
+      template: '!!raw-loader!views/index.ejs',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        conservativeCollapse: true
+      }
     })
-  ]
+  ],
+  devServer: {
+    contentBase: "./dist",
+    compress: false,
+    port: 9000
+  }
 };

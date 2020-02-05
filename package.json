@@ -2,12 +2,12 @@
   "name": "jhm",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "clean": "rimraf public",
-    "build": "npm run clean && webpack && npm run renameIndex",
+    "build": "npm run clean && webpack",
     "serve": "webpack-dev-server",
-    "renameIndex": "mv ./public/index.html ./public/start-scripts.html"
+    "start": "node app.js"
   },
   "repository": "https://github.com/StephenGrider/WebpackProject",
   "author": "Srikanth",
@@ -35,10 +35,11 @@
     "babel-preset-react": "^6.16.0",
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
+    "raw-loader": "^4.0.0",
     "rimraf": "^2.6.3",
     "style-loader": "^0.13.1",
     "webpack": "2.2.0-rc.0",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.2"
+    "webpack-dev-server": "^2.10.2"
   }
 }
