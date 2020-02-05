@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && webpack",
-    "serve": "webpack-dev-server"
+    "clean": "rimraf public",
+    "build": "npm run clean && webpack && npm run renameIndex",
+    "serve": "webpack-dev-server",
+    "renameIndex": "mv ./public/index.html ./public/start-scripts.html"
   },
   "repository": "https://github.com/StephenGrider/WebpackProject",
   "author": "Srikanth",
   "license": "jhm",
   "dependencies": {
     "axios": "^0.19.2",
+    "ejs": "2.5.6",
+    "ejs-webpack-loader": "^2.2.2",
+    "express": "^4.17.1",
     "faker": "^3.1.0",
     "lodash": "^4.17.2",
     "react": "15.4.1",

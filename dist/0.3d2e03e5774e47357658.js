@@ -53,8 +53,7 @@ var ArtistTest = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'row' },
-        'hello ',
-        this.props.artistTest
+        'hello'
       );
     }
   }]);

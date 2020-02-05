@@ -21,7 +21,7 @@ module.exports = {
     vendor: VENDOR_LIBS
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public'),
     filename: '[name].[chunkhash].js'// here the output files will be created from key names of entry object.
   },
   module: {

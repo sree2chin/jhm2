@@ -1382,7 +1382,7 @@ var componentRoutes = {
       });
     }
   }, {
-    path: 'fads',
+    path: 'test',
     getComponent: function getComponent(location, cb) {
       __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 1548)).then(function (module) {
         return cb(null, module.default);

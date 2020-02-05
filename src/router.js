@@ -34,7 +34,7 @@ const componentRoutes = {
       }
     },
     {
-      path: 'fads',
+      path: 'test',
       getComponent(location, cb) {
         System.import("./components/artists/ArtistTest")
           .then(module => cb(null, module.default));
