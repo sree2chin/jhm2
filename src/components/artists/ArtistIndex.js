@@ -93,7 +93,6 @@ class ArtistIndex extends Component {
           {this.props.artists.all.map(this.renderList.bind(this))}
           {this.renderEmptyCollection()}
         </ul>
-
         {this.renderPaginator()}
       </div>
     );
